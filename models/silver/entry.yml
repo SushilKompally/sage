@@ -1,0 +1,191 @@
+version: 2
+
+models:
+  - name: entry
+    description: >
+      Silver-level entry table containing detailed accounting and transaction
+      records. Data is standardized, trimmed, and type-cast from source systems.
+
+    columns:
+      - name: ACCOUNTKEY
+        description: Account surrogate key
+
+      - name: ACCOUNTNO
+        description: Account number
+
+      - name: ACCOUNTTITLE
+        description: Account title
+
+      - name: ADJ
+        description: Adjustment indicator
+
+      - name: AMOUNT
+        description: Transaction amount
+
+      - name: BASECURR
+        description: Base currency
+
+      - name: BATCH_DATE
+        description: Batch processing date
+
+      - name: BATCH_NUMBER
+        description: Batch number (numeric)
+
+      - name: BATCHNO
+        description: Batch number (string)
+
+      - name: BATCHTITLE
+        description: Batch title
+
+      - name: BILLABLE
+        description: Billable flag
+
+      - name: CLASSDIMKEY
+        description: Class dimension key
+
+      - name: CLASSID
+        description: Class identifier
+
+      - name: CLASSNAME
+        description: Class name
+
+      - name: CLEARED
+        description: Cleared status
+
+      - name: CLRDATE
+        description: Clearing date
+
+      - name: CREATEDBY
+        description: Creator user identifier
+
+      - name: CREATEDBYLOGINID
+        description: Creator login ID
+
+      - name: CURRENCY
+        description: Transaction currency
+
+      - name: CUSTOMERDIMKEY
+        description: Customer dimension key
+
+      - name: CUSTOMERID
+        description: Customer identifier
+
+      - name: CUSTOMERNAME
+        description: Customer name
+
+      - name: DEPARTMENT
+        description: Department identifier
+
+      - name: DEPARTMENTKEY
+        description: Department dimension key
+
+      - name: DEPARTMENTTITLE
+        description: Department title
+
+      - name: DESCRIPTION
+        description: Transaction description
+
+      - name: DOCUMENT
+        description: Document reference
+
+      - name: ENTRY_DATE
+        description: Entry date
+
+      - name: EXCH_RATE_DATE
+        description: Exchange rate date
+
+      - name: EXCH_RATE_TYPE_ID
+        description: Exchange rate type identifier
+
+      - name: EXCHANGE_RATE
+        description: Exchange rate value
+
+      - name: GLDIMREVENUE_CENTER
+        description: GL revenue center dimension key
+
+      - name: ITEMDIMKEY
+        description: Item dimension key
+
+      - name: ITEMID
+        description: Item identifier
+
+      - name: ITEMNAME
+        description: Item name
+
+      - name: LINE_NO
+        description: Line number within the entry
+
+      - name: LOCATION
+        description: Location identifier
+
+      - name: LOCATIONKEY
+        description: Location dimension key
+
+      - name: LOCATIONNAME
+        description: Location name
+
+      - name: MODIFIEDBY
+        description: Last modified user identifier
+
+      - name: MODIFIEDBYLOGINID
+        description: Last modified user login ID
+
+      - name: PROJECTDIMKEY
+        description: Project dimension key
+
+      - name: PROJECTID
+        description: Project identifier
+
+      - name: PROJECTNAME
+        description: Project name
+
+      - name: RDEPRECIATION_SUMMARY
+        description: Depreciation summary amount
+
+      - name: RECORD_URL
+        description: Source system record URL
+
+      - name: RECORDNO
+        description: Record number
+
+      - name: STATE
+        description: Entry state/status
+
+      - name: STATISTICAL
+        description: Statistical entry flag
+
+      - name: TR_TYPE
+        description: Transaction type
+
+      - name: TRX_AMOUNT
+        description: Transaction amount in transaction currency
+
+      - name: USERNO
+        description: User number
+
+      - name: VENDORDIMKEY
+        description: Vendor dimension key
+
+      - name: VENDORID
+        description: Vendor identifier
+
+      - name: VENDORNAME
+        description: Vendor name
+
+      - name: WAREHOUSEDIMKEY
+        description: Warehouse dimension key
+
+      - name: WAREHOUSEID
+        description: Warehouse identifier
+
+      - name: WAREHOUSENAME
+        description: Warehouse name
+
+      - name: WHENCREATED
+        description: Record creation timestamp
+
+      - name: WHENMODIFIED
+        description: Record last modified timestamp
+
+      - name: SILVER_LOAD_DATE
+        description: Silver layer load timestamp

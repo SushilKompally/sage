@@ -1,0 +1,229 @@
+version: 2
+
+models:
+  - name: silver_customer
+    description: >
+      Silver-layer Sage customer table.
+      Incrementally loaded from bronze with standardized data types,
+      macro-based cleaning, and audit metadata.
+
+    columns:
+
+      # ===========================
+      # PRIMARY KEY
+      # ===========================
+      - name: ACCOUNTKEY
+        description: "Primary key for the customer record"
+        tests:
+          - not_null
+          - unique
+
+      # ===========================
+      # KEYS / RELATIONSHIPS
+      # ===========================
+      - name: ARACCOUNT
+        description: "Accounts receivable account number"
+
+      - name: CUSTTYPEKEY
+        description: "Customer type reference key"
+
+      - name: DISPLAYCONTACTKEY
+        description: "Primary display contact key"
+
+      - name: MEGAENTITYKEY
+        description: "Mega entity reference key"
+
+      - name: TERMSKEY
+        description: "Payment terms reference key"
+
+      # ===========================
+      # IDENTIFIERS & DETAILS
+      # ===========================
+      - name: CUSTOMERID
+        description: "Customer business identifier"
+
+      - name: NAME
+        description: "Customer name"
+
+      - name: STATUS
+        description: "Customer status (Active, Inactive, etc.)"
+
+      - name: ENTITY
+        description: "Customer entity"
+
+      - name: OBJECTRESTRICTION
+        description: "Object-level restriction indicator"
+
+      - name: PRCLST_OVERRIDE
+        description: "Price list override indicator"
+
+      - name: RECORD_URL
+        description: "Source system record URL"
+
+      # ===========================
+      # ACCOUNTING / AR
+      # ===========================
+      - name: ARACCOUNTTITLE
+        description: "Accounts receivable account title"
+
+      - name: ARINVOICEPRINTTEMPLATEID
+        description: "Invoice print template identifier"
+
+      - name: TERMNAME
+        description: "Payment term name"
+
+      - name: TERMVALUE
+        description: "Payment term value"
+
+      - name: TOTALDUE
+        description: "Total outstanding balance"
+
+      # ===========================
+      # CUSTOMER TYPE
+      # ===========================
+      - name: CUSTTYPE
+        description: "Customer type classification"
+
+      # ===========================
+      # TERRITORY
+      # ===========================
+      - name: TERRITORYID
+        description: "Sales territory identifier"
+
+      - name: TERRITORYKEY
+        description: "Sales territory key"
+
+      - name: TERRITORYNAME
+        description: "Sales territory name"
+
+      # ===========================
+      # DISPLAY CONTACT – CORE
+      # ===========================
+      - name: DISPLAYCONTACT_COMPANYNAME
+        description: "Display contact company name"
+
+      - name: DISPLAYCONTACT_CONTACTNAME
+        description: "Display contact full name"
+
+      - name: DISPLAYCONTACT_FIRSTNAME
+        description: "Display contact first name"
+
+      - name: DISPLAYCONTACT_LASTNAME
+        description: "Display contact last name"
+
+      - name: DISPLAYCONTACT_INITIAL
+        description: "Display contact middle initial"
+
+      - name: DISPLAYCONTACT_PRINTAS
+        description: "Display contact print-as name"
+
+      - name: DISPLAYCONTACT_STATUS
+        description: "Display contact status"
+
+      # ===========================
+      # DISPLAY CONTACT – COMMUNICATION
+      # ===========================
+      - name: DISPLAYCONTACT_EMAIL_1
+        description: "Primary email address"
+
+      - name: DISPLAYCONTACT_EMAIL_2
+        description: "Secondary email address"
+
+      - name: DISPLAYCONTACT_PHONE_1
+        description: "Primary phone number"
+
+      - name: DISPLAYCONTACT_CELLPHONE
+        description: "Cell phone number"
+
+      # ===========================
+      # DISPLAY CONTACT – ADDRESS
+      # ===========================
+      - name: MAILADDRESS_LINE1
+        description: "Mailing address line 1"
+
+      - name: MAILADDRESS_LINE2
+        description: "Mailing address line 2"
+
+      - name: MAILADDRESS_LINE3
+        description: "Mailing address line 3"
+
+      - name: MAILADDRESS_CITY
+        description: "Mailing address city"
+
+      - name: MAILADDRESS_STATE
+        description: "Mailing address state"
+
+      - name: MAILADDRESS_ZIP
+        description: "Mailing address postal code"
+
+      - name: MAILADDRESS_COUNTRY
+        description: "Mailing address country"
+
+      - name: MAILADDRESS_COUNTRYCODE
+        description: "Mailing address country code"
+
+      # ===========================
+      # FLAGS / BOOLEANS
+      # ===========================
+      - name: EMAILOPTIN
+        description: "Customer email opt-in flag"
+
+      - name: ENABLEONLINEACHPAYMENT
+        description: "ACH payment enabled flag"
+
+      - name: ENABLEONLINECARDPAYMENT
+        description: "Card payment enabled flag"
+
+      - name: DISPLAYCONTACT_TAXABLE
+        description: "Display contact taxable flag"
+
+      - name: DISPLAYCONTACT_VISIBLE
+        description: "Display contact visibility flag"
+
+      - name: ONETIME
+        description: "One-time customer indicator"
+
+      - name: ONHOLD
+        description: "Customer on-hold flag"
+
+      # ===========================
+      # AUDIT – SOURCE
+      # ===========================
+      - name: CREATEDBY
+        description: "Source system created-by user ID"
+
+      - name: CREATEDBYLOGINID
+        description: "Source system created-by login ID"
+
+      - name: MODIFIEDBY
+        description: "Source system modified-by user ID"
+
+      - name: MODIFIEDBYLOGINID
+        description: "Source system modified-by login ID"
+
+      - name: WHENCREATED
+        description: "Record creation timestamp in source system"
+
+      - name: WHENMODIFIED
+        description: "Last modification timestamp in source system"
+
+      - name: LAST_INVOICEDATE
+        description: "Date of last invoice"
+
+      - name: LAST_STATEMENTDATE
+        description: "Date of last statement"
+
+      # ===========================
+      # SILVER / INGESTION AUDIT
+      # ===========================
+      - name: SILVER_LOAD_DATE
+        description: "Timestamp when the record was loaded into Silver layer"
+
+      - name: _INGESTION_TIMESTAMP
+        description: "Ingestion timestamp from Bronze layer"
+
+      - name: _SOURCE_OBJECT
+        description: "Source object name from ingestion metadata"
+
+      - name: _BATCH_ID
+        description: "Ingestion batch identifier"

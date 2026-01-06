@@ -1,0 +1,48 @@
+
+version: 2
+
+snapshots:
+  - name: dim_chartofaccounts
+    description: "Snapshot of Sage chart of accounts enriched with LOCATION_ENTITY."
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      - name: account_id
+        description: "Primary key (ACCOUNT.RECORDNO)."
+        data_type: number
+        tests: [not_null, unique]
+
+      - name: account_title
+        description: "Account title (ACCOUNT.TITLE)."
+        data_type: varchar
+
+      - name: account_number
+        description: "Account number (ACCOUNT.ACCOUNTNO)."
+        data_type: varchar
+
+      - name: account_subsidiary_id
+        description: "Subsidiary key linked to the account (ACCOUNT.CATEGORYKEY)."
+        data_type: number
+
+      - name: account_type
+        description: "Type of the account (ACCOUNT.ACCOUNTTYPE)."
+        data_type: varchar
+
+      - name: subsidiary_full_name
+        description: "Subsidiary full name (LOCATION_ENTITY.ENTITY)."
+        data_type: varchar
+
+      - name: subsidiary_id
+        description: "Subsidiary identifier (LOCATION_ENTITY.RECORDNO)."
+        data_type: number
+
+      - name: subsidiary_name
+        description: "Subsidiary name (LOCATION_ENTITY.NAME)."
+        data_type: varchar
+
+      # Only present if you use Option B (timestamp strategy)
+      - name: updated_at_ts
+        description: "Derived updated-at timestamp (GREATEST of source modification timestamps)."
+        data_type: timestamp_ntz

@@ -1,0 +1,50 @@
+
+version: 2
+
+snapshots:
+  - name: dim_location
+    description: "SCD Type 2 snapshot for Sage locations using timestamp strategy (updated_at=last_modified_date)."
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      # PRIMARY KEY
+      - name: location_id
+        description: "Primary key for location (LOCATION.LOCATIONID)."
+        data_type: number
+
+      # FOREIGN KEYS
+      - name: subsidiary_id
+        description: "FK to subsidiary (LOCATION.ENTITY)."
+        data_type: number
+        tests:
+          - relationships:
+              to: ref('dim_subsidiary')
+              field: subsidiary_id
+
+      # DETAILS
+      - name: location_full_name
+        description: "Full name of the location (LOCATION.NAME)."
+        data_type: varchar
+
+      - name: is_inactive
+        description: "Inactive status (LOCATION.STATUS)."
+        data_type: varchar
+
+      - name: country
+        description: "Default country for the location (LOCATION.ADDRESSCOUNTRYDEFAULT)."
+        data_type: varchar
+
+      - name: location_type
+        description: "Type of location (LOCATION.LOCATIONTYPE)."
+        data_type: varchar
+
+      - name: parent
+        description: "Parent location name (LOCATION.PARENTNAME)."
+        data_type: varchar
+
+      # AUDIT / METADATA
+      - name: last_modified_date
+        description: "Source last modified timestamp (LOCATION.WHENMODIFIED) used as updated_at for SCD2."
+        data_type: timestamp_ntz

@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: silver_department
+    description: >
+      Silver layer table for Sage department master data.
+      Contains organizational department hierarchy and supervisor details.
+
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      - name: departmentid
+        data_type: varchar
+        description: "Unique department identifier"
+        tests:
+          - not_null
+          - unique
+
+      - name: custtitle
+        data_type: varchar
+
+      - name: parentid
+        data_type: varchar
+
+      - name: parentkey
+        data_type: number(38,0)
+
+      - name: parentname
+        data_type: varchar
+
+      - name: createdby
+        data_type: number(38,0)
+
+      - name: modifiedby
+        data_type: number(38,0)
+
+      - name: recordno
+        data_type: number(38,0)
+
+      - name: record_url
+        data_type: varchar
+
+      - name: status
+        data_type: varchar
+
+      - name: supervisorid
+        data_type: varchar
+
+      - name: supervisorkey
+        data_type: number(38,0)
+
+      - name: supervisorname
+        data_type: varchar
+
+      - name: title
+        data_type: varchar
+
+      - name: whencreated
+        data_type: timestamp_ntz
+
+      - name: whenmodified
+        data_type: timestamp_ntz
+
+      - name: silver_load_date
+        data_type: timestamp_ntz

@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: silver_reporting_period
+    description: >
+      Silver layer table for Sage reporting periods.
+      Contains standardized reporting calendar data used
+      for financial and operational reporting.
+
+    config:
+      materialized: incremental
+      unique_key: recordno
+
+    columns:
+      - name: recordno
+        description: "Unique system-generated identifier for the reporting period"
+        tests:
+          - not_null
+          - unique
+
+      - name: name
+        description: "Reporting period name (e.g. FY2024-Q1)"
+
+      - name: status
+        description: "Current status of the reporting period"
+
+      - name: budgeting
+        description: "Indicates whether the period is enabled for budgeting"
+
+      - name: datetype
+        description: "Numeric representation of date type"
+
+      - name: start_date
+        description: "Reporting period start date"
+
+      - name: end_date
+        description: "Reporting period end date"
+
+      - name: header_1
+        description: "Custom reporting header 1"
+
+      - name: header_2
+        description: "Custom reporting header 2"
+
+      - name: whencreated
+        description: "Source system record creation timestamp"
+
+      - name: whenmodified
+        description: "Source system record modification timestamp"
+
+      - name: silver_load_date
+        description: "Timestamp when record was loaded into Silver layer"

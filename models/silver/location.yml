@@ -1,0 +1,85 @@
+version: 2
+
+models:
+  - name: silver_location
+    description: >
+      Silver layer table for Sage location  data.
+      Data is incrementally loaded from Bronze, cleaned, standardized,
+      and enriched with audit metadata.
+
+    config:
+      materialized: incremental
+      unique_key: locationid
+
+    columns:
+      - name: locationid
+        description: "Unique business identifier for the location"
+        tests:
+          - not_null
+          - unique
+
+      - name: recordno
+        description: "System-generated numeric record identifier"
+
+      - name: name
+        description: "Location entity name"
+
+      - name: entity
+        description: "Legal or operational entity name"
+
+      - name: locationtype
+        description: "Type/category of the location"
+
+      - name: model_type
+        description: "Operational model type of the location"
+
+      - name: status
+        description: "Current lifecycle status of the location"
+
+      - name: site_status
+        description: "Operational site status"
+
+      - name: site_type
+        description: "Classification of site type"
+
+      - name: parentid
+        description: "Parent location identifier"
+
+      - name: parentkey
+        description: "Numeric key of the parent location"
+
+      - name: revenue_stream
+        description: "Revenue stream classification"
+
+      - name: project_type
+        description: "Project type associated with the location"
+
+      - name: addresscountrydefault
+        description: "Default country for the location address"
+
+      - name: businessdays
+        description: "Business days configuration"
+
+      - name: weekends
+        description: "Weekend configuration"
+
+      - name: startdate
+        description: "Location operational start date"
+
+      - name: close_date
+        description: "Location close date"
+
+      - name: location_open_date
+        description: "Date when the location was opened"
+
+      - name: location_cohort_open_date
+        description: "Cohort-based opening date"
+
+      - name: whencreated
+        description: "Timestamp when the record was created in source"
+
+      - name: whenmodified
+        description: "Timestamp when the record was last modified in source"
+
+      - name: silver_load_date
+        description: "Timestamp when the record was loaded into Silver layer"

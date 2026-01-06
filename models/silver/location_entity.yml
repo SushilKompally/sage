@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: silver_location_entity
+    description: "Silver layer table for Sage location entity master data"
+    columns:
+      - name: RECORDNO
+        description: "Primary key for location entity"
+        tests:
+          - not_null
+          - unique
+
+      - name: LOCATIONID
+        description: "Location identifier"
+
+      - name: NAME
+        description: "Location or entity name"
+
+      - name: ENTITY
+        description: "Entity code"
+
+      - name: ACCOUNTINGTYPE
+        description: "Accounting type for the entity"
+
+      - name: STATUS
+        description: "Entity status"
+
+      - name: OPCOUNTRY
+        description: "Operating country"
+
+      - name: LEGALCOUNTRYCODE
+        description: "Legal country code"
+
+      - name: FEDERALID
+        description: "Federal identification number"
+
+      - name: TAXID
+        description: "Tax identification number"
+
+      - name: DEFAULTPARTIALEXEMPT
+        description: "Indicates default partial tax exemption"
+
+      - name: PARTIALEXEMPT
+        description: "Indicates partial tax exemption"
+
+      - name: ISROOT
+        description: "Indicates root entity"
+
+      - name: ISLIMITEDENTITY
+        description: "Indicates limited legal entity"
+
+      - name: STARTOPEN
+        description: "Entity opening date"
+
+      - name: STATUTORYREPORTINGPERIOD
+        description: "Statutory reporting period start date"
+
+      - name: WHENCREATED
+        description: "Record creation timestamp"
+
+      - name: WHENMODIFIED
+        description: "Last modification timestamp"
+
+      - name: SILVER_LOAD_DATE
+        description: "Timestamp when record was loaded into Silver layer"

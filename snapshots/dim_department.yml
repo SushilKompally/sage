@@ -1,0 +1,27 @@
+
+version: 2
+
+snapshots:
+  - name: dim_department
+    description: "SCD Type 2 snapshot for Sage departments using timestamp strategy on last_modified_date."
+
+    columns:
+      - name: department_id
+        description: "Unique identifier for the department (DEPARTMENT.DEPARTMENTID)"
+       
+      - name: department_name
+        description: "Department title (DEPARTMENT.TITLE)."
+        data_type: varchar
+
+      - name: is_inactive
+        description: "Department status (DEPARTMENT.STATUS)."
+        data_type: varchar
+
+      - name: parent
+        description: "Parent department ID (DEPARTMENT.PARENTID)."
+        data_type: number
+
+      - name: last_modified_date
+        description: "Source system last modified timestamp (DEPARTMENT.WHENMODIFIED) used as updated_at for SCD2."
+        data_type: timestamp_ntz
+

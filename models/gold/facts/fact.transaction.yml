@@ -1,0 +1,128 @@
+
+version: 2
+
+models:
+  - name: transaction
+    description: "Consolidated transaction facts from Sage sources (ENTRY, BATCH, DETAIL, ACCOUNT, REPORTING_PERIOD)."
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      - name: TRANSACTIONS_UNIQUE_ID
+        description: "Surrogate key built from ENTRY.RECORDNO and BATCH.RECORDNO."
+        data_type: varchar
+        tests: [not_null, unique]
+
+      - name: TRANSACTION_ID
+        description: "Batch identifier from DETAIL.BATCHKEY."
+        data_type: number
+
+      - name: TRAN_ID
+        description: "BATCH.RECORDNO (alternate transaction identifier)."
+        data_type: number
+
+      - name: TRANSACTION_LINE_ID
+        description: "ENTRY.RECORDNO (transaction line identifier)."
+        data_type: number
+        tests: [not_null]
+
+      - name: ACCOUNT_ID
+        description: "ENTRY.ACCOUNTKEY."
+        data_type: number
+
+      - name: ITEM_ID
+        description: "ENTRY.ITEMID."
+        data_type: varchar
+
+      - name: CLASS_ID
+        description: "ENTRY.CLASSID."
+        data_type: number
+
+      - name: LOCATION_ID
+        description: "ENTRY.LOCATIONKEY."
+        data_type: number
+
+      - name: DEPARTMENT_ID
+        description: "ENTRY.DEPARTMENTKEY."
+        data_type: number
+
+      - name: CURRENCY_ID
+        description: "ENTRY.CURRENCY."
+        data_type: varchar
+
+      - name: REPORTING_PERIOD_ID
+        description: "Reporting period identifier derived from BATCH.BATCH_DATE."
+        data_type: date
+
+      - name: POSTING_PERIOD_DATE
+        description: "Posting period date (BATCH.BATCH_DATE)."
+        data_type: date
+
+      - name: ACCOUNT_NUMBER
+        description: "ACCOUNT.ACCOUNTNO."
+        data_type: varchar
+
+      - name: ACCOUNT_TYPE
+        description: "ACCOUNT.ACCOUNTTYPE."
+        data_type: varchar
+
+      - name: ACCOUNT_NAME
+        description: "ACCOUNT.TITLE."
+        data_type: varchar
+
+      - name: TRANSACTION_TYPE
+        description: "ENTRY.TR_TYPE."
+        data_type: varchar
+
+      - name: TRANSACTION_LINE_NO
+        description: "ENTRY.LINE_NO."
+        data_type: number
+
+      - name: ITEM_TYPE
+        description: "ENTRY.ITEMNAME."
+        data_type: varchar
+
+      - name: ACCOUNTING_LINE_NO
+        description: "DETAIL.LINE_NO."
+        data_type: number
+
+      - name: TITLE
+        description: "ENTRY.BATCHTITLE."
+        data_type: varchar
+
+      - name: MEMO
+        description: "BATCH.BATCH_TITLE."
+        data_type: varchar
+
+      - name: STATE
+        description: "ENTRY.STATE."
+        data_type: varchar
+
+      - name: NET_AMOUNT
+        description: "COALESCE(ENTRY.TRX_AMOUNT, DETAIL.TRX_AMOUNT)."
+        data_type: number
+
+      - name: AMOUNT
+        description: "COALESCE(ENTRY.AMOUNT, DETAIL.AMOUNT)."
+        data_type: number
+
+      - name: TRAN_DATE
+        description: "ENTRY.ENTRY_DATE."
+        data_type: date
+
+      - name: START_DATE
+        description: "REPORTING_PERIOD.START_DATE."
+        data_type: date
+
+      - name: END_DATE
+        description: "REPORTING_PERIOD.END_DATE."
+        data_type: date
+
+      - name: CHART_OF_ACCOUNTS_UNIQUE_ID
+        description: "Surrogate key built from ACCOUNTKEY and CLASSID."
+        data_type: varchar
+
+      - name: LAST_MODIFIED_DATE
+        description: "BATCH.WHENMODIFIED (used for incremental loads)."
+        data_type: timestamp_ntz

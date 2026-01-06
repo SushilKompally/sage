@@ -1,0 +1,32 @@
+
+version: 2
+
+models:
+  - name: silver_currency
+    description: >
+      Standardized Silver table for Sage currency, loaded incrementally from Bronze.
+      Contains normalized identifiers, cleaned strings, source metadata, and a Silver audit column.
+    columns:
+      - name: CURRENCY_ID
+        description: "Primary key for the currency (from Bronze: ID)"
+        tests:
+          - not_null
+          - unique
+
+      - name: CURRENCY_NAME
+        description: "Currency display name (from Bronze: NAME)"
+        tests:
+          - not_null
+
+      - name: SYMBOL
+        description: "Currency symbol (from Bronze: SYMBOL)"
+
+      - name: UPDATED_AT
+        description: "Last update timestamp from the source (TIMESTAMP_NTZ)"
+        tests:
+          - not_null
+
+      - name: SILVER_LOAD_DATE
+        description: "Audit timestamp when the row was processed into Silver (CURRENT_TIMESTAMP())"
+
+     
