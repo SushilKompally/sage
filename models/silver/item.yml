@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: silver_item
+    description: "Silver layer table for Sage Item master data"
+    columns:
+      - name: RECORDNO
+        description: "Primary key for item record"
+        tests:
+          - not_null
+          - unique
+
+      - name: ITEMID
+        description: "Item identifier"
+
+      - name: NAME
+        description: "Item name"
+
+      - name: ITEMTYPE
+        description: "Type of item"
+
+      - name: STATUS
+        description: "Item status"
+
+      - name: BASEPRICE
+        description: "Base price of the item"
+
+      - name: STANDARD_COST
+        description: "Standard cost of the item"
+
+      - name: IONHAND
+        description: "Inventory on hand quantity"
+
+      - name: IONORDER
+        description: "Inventory on order quantity"
+
+      - name: REORDER_POINT
+        description: "Reorder threshold"
+
+      - name: REORDER_QTY
+        description: "Reorder quantity"
+
+      - name: TAXABLE
+        description: "Indicates if item is taxable"
+
+      - name: WEBENABLED
+        description: "Item enabled for web sales"
+
+      - name: WHENCREATED
+        description: "Record creation timestamp"
+
+      - name: WHENMODIFIED
+        description: "Last modification timestamp"
+
+      - name: SILVER_LOAD_DATE
+        description: "Timestamp when record was loaded into Silver layer"

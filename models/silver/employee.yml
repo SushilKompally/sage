@@ -1,0 +1,127 @@
+version: 2
+
+models:
+  - name: silver_employee
+    description: >
+      Silver layer table for Sage employee master data.
+      Contains employee identity, organizational hierarchy,
+      personal and operational attributes.
+
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      - name: employeeid
+        data_type: varchar
+        tests:
+          - not_null
+          - unique
+
+      - name: contact_name
+        data_type: varchar
+
+      - name: contactkey
+        data_type: number(38,0)
+
+      - name: departmentid
+        data_type: varchar
+
+      - name: departmentkey
+        data_type: number(38,0)
+
+      - name: employeetype
+        data_type: varchar
+
+      - name: emptypekey
+        data_type: number(38,0)
+
+      - name: entity
+        data_type: varchar
+
+      - name: filepaymentservice
+        data_type: varchar
+
+      - name: generic
+        data_type: boolean
+
+      - name: locationid
+        data_type: varchar
+
+      - name: locationkey
+        data_type: number(38,0)
+
+      - name: megaentityid
+        data_type: varchar
+
+      - name: megaentitykey
+        data_type: number(38,0)
+
+      - name: megaentityname
+        data_type: varchar
+
+      - name: mergepaymentreq
+        data_type: boolean
+
+      - name: paymentnotify
+        data_type: boolean
+
+      - name: personalinfo_companyname
+        data_type: varchar
+
+      - name: personalinfo_contactname
+        data_type: varchar
+
+      - name: personalinfo_email_1
+        data_type: varchar
+
+      - name: personalinfo_firstname
+        data_type: varchar
+
+      - name: personalinfo_initial
+        data_type: varchar
+
+      - name: personalinfo_lastname
+        data_type: varchar
+
+      - name: personalinfo_mailaddress_country
+        data_type: varchar
+
+      - name: personalinfo_mailaddress_countrycode
+        data_type: varchar
+
+      - name: personalinfo_phone_1
+        data_type: varchar
+
+      - name: personalinfo_printas
+        data_type: varchar
+
+      - name: postactualcost
+        data_type: boolean
+
+      - name: recordno
+        data_type: number(38,0)
+
+      - name: record_url
+        data_type: varchar
+
+      - name: status
+        data_type: varchar
+
+      - name: supervisorid
+        data_type: varchar
+
+      - name: supervisorname
+        data_type: varchar
+
+      - name: title
+        data_type: varchar
+
+      - name: whencreated
+        data_type: timestamp_ntz
+
+      - name: whenmodified
+        data_type: timestamp_ntz
+
+      - name: silver_load_date
+        data_type: timestamp_ntz

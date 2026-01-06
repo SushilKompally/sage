@@ -1,0 +1,38 @@
+
+version: 2
+
+snapshots:
+  - name: dim_subsidiary
+    description: "SCD Type 2 snapshot for Sage subsidiaries using timestamp strategy (updated_at=last_modified_date)."
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      # PRIMARY KEY
+      - name: subsidiary_id
+        description: "Primary key for subsidiary (SUBSIDIARY.LOCATIONID)."
+        data_type: number
+
+      # DETAILS
+      - name: subsidiary_number
+        description: "Subsidiary federal ID or number (SUBSIDIARY.FEDERALID)."
+        data_type: varchar
+
+      - name: subsidiary_title
+        description: "Title or name of the subsidiary (SUBSIDIARY.ENTITY)."
+        data_type: varchar
+
+      - name: is_inactive
+        description: "Inactive status (SUBSIDIARY.STATUS)."
+        data_type: varchar
+
+      # DATES / TIMESTAMPS
+      - name: date_created
+        description: "Record creation timestamp (SUBSIDIARY.WHENCREATED)."
+        data_type: timestamp_ntz
+
+      # AUDIT / METADATA
+      - name: last_modified_date
+        description: "Source last modified timestamp (SUBSIDIARY.WHENMODIFIED) used as updated_at for SCD2."
+        data_type: timestamp_ntz

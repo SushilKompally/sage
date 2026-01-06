@@ -1,0 +1,252 @@
+version: 2
+
+models:
+  - name: detail
+    description: >
+      Silver-level detailed transaction table containing accounting,
+      customer, vendor, project, and financial attributes.
+      Data is standardized, trimmed, and type-cast from raw sources.
+
+    columns:
+      - name: ACCOUNTNO
+        description: Account number
+
+      - name: ACCOUNTTITLE
+        description: Account title or name
+
+      - name: ADJ
+        description: Adjustment flag
+
+      - name: AMOUNT
+        description: Transaction amount
+
+      - name: AUCREATEDBY
+        description: Audit user who created the record
+
+      - name: AUWHENCREATED
+        description: Audit creation timestamp
+
+      - name: BASECURR
+        description: Base currency
+
+      - name: BATCH_DATE
+        description: Batch processing date
+
+      - name: BATCH_NO
+        description: Batch number
+
+      - name: BATCH_STATE
+        description: Batch status
+
+      - name: BATCH_TITLE
+        description: Batch title
+
+      - name: BATCHKEY
+        description: Batch surrogate key
+
+      - name: BOOKID
+        description: Accounting book identifier
+
+      - name: CLASSDIMKEY
+        description: Class dimension key
+
+      - name: CLASSID
+        description: Class identifier
+
+      - name: CLASSNAME
+        description: Class name
+
+      - name: CLEARED
+        description: Cleared flag
+
+      - name: CLEARED_DEPRECATED
+        description: Deprecated cleared indicator
+
+      - name: CLRDATE
+        description: Clearing date
+
+      - name: CREATEDBY
+        description: Record creator identifier
+
+      - name: CREDITAMOUNT
+        description: Credit amount
+
+      - name: CURRENCY
+        description: Transaction currency
+
+      - name: CUSTENTITY
+        description: Customer entity identifier
+
+      - name: CUSTOMERDIMKEY
+        description: Customer dimension key
+
+      - name: CUSTOMERID
+        description: Customer ID
+
+      - name: CUSTOMERNAME
+        description: Customer name
+
+      - name: DEBITAMOUNT
+        description: Debit amount
+
+      - name: DEPARTMENTID
+        description: Department ID
+
+      - name: DEPARTMENTTITLE
+        description: Department title
+
+      - name: DESCRIPTION
+        description: Transaction description
+
+      - name: DOCNUMBER
+        description: Document number
+
+      - name: DOCUMENT
+        description: Document reference
+
+      - name: ENTRY_DATE
+        description: Entry date
+
+      - name: ENTRY_STATE
+        description: Entry status
+
+      - name: ENTRYDESCRIPTION
+        description: Entry description
+
+      - name: FINANCIALENTITY
+        description: Financial entity identifier
+
+      - name: GLDIMREVENUE_CENTER
+        description: GL revenue center dimension key
+
+      - name: GLENTRYKEY
+        description: General ledger entry key
+
+      - name: ITEMDIMKEY
+        description: Item dimension key
+
+      - name: ITEMID
+        description: Item ID
+
+      - name: ITEMNAME
+        description: Item name
+
+      - name: LINE_NO
+        description: Line number within the transaction
+
+      - name: LOCATIONID
+        description: Location ID
+
+      - name: LOCATIONNAME
+        description: Location name
+
+      - name: MODIFIED
+        description: Record modified timestamp
+
+      - name: MODIFIEDBY
+        description: Modifier identifier
+
+      - name: MODULEKEY
+        description: Source module key
+
+      - name: OWNERSHIPKEY
+        description: Ownership key
+
+      - name: PRCLEARED
+        description: Payment request cleared flag
+
+      - name: PRCLRDATE
+        description: Payment request cleared date
+
+      - name: PRDESCRIPTION
+        description: Payment request description
+
+      - name: PROJECTDIMKEY
+        description: Project dimension key
+
+      - name: PROJECTID
+        description: Project ID
+
+      - name: PROJECTNAME
+        description: Project name
+
+      - name: RDEPRECIATION_SUMMARY
+        description: Depreciation summary
+
+      - name: RECORDID
+        description: Source record ID
+
+      - name: RECORDNO
+        description: Record number
+
+      - name: RECORDTYPE
+        description: Record type
+
+      - name: REFERENCENO
+        description: Reference number
+
+      - name: STATE
+        description: Record state
+
+      - name: STATISTICAL
+        description: Statistical entry flag
+
+      - name: SYMBOL
+        description: Currency symbol
+
+      - name: TOTALDUE
+        description: Total due amount
+
+      - name: TOTALENTERED
+        description: Total entered amount
+
+      - name: TOTALPAID
+        description: Total paid amount
+
+      - name: TR_TYPE
+        description: Transaction type
+
+      - name: TRX_AMOUNT
+        description: Transaction amount in transaction currency
+
+      - name: TRX_CREDITAMOUNT
+        description: Transaction credit amount
+
+      - name: TRX_DEBITAMOUNT
+        description: Transaction debit amount
+
+      - name: VENDENTITY
+        description: Vendor entity identifier
+
+      - name: VENDORDIMKEY
+        description: Vendor dimension key
+
+      - name: VENDORID
+        description: Vendor ID
+
+      - name: VENDORNAME
+        description: Vendor name
+
+      - name: WAREHOUSEDIMKEY
+        description: Warehouse dimension key
+
+      - name: WAREHOUSEID
+        description: Warehouse ID
+
+      - name: WAREHOUSENAME
+        description: Warehouse name
+
+      - name: WHENCREATED
+        description: Record creation timestamp
+
+      - name: WHENDUE
+        description: Due date
+
+      - name: WHENMODIFIED
+        description: Last modified timestamp
+
+      - name: WHENPAID
+        description: Payment date
+
+      - name: SILVER_LOAD_DATE
+        description: Silver layer load timestamp

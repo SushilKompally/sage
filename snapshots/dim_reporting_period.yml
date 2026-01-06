@@ -1,0 +1,34 @@
+
+version: 2
+
+snapshots:
+  - name: dim_reporting_period
+    description: "SCD Type 2 snapshot for Sage reporting periods using timestamp strategy (updated_at=last_modified_date)."
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      # PRIMARY KEY
+      - name: reporting_period_id
+        description: "Unique identifier for the reporting period (REPORTING_PERIOD.RECORDNO)."
+        data_type: number
+
+      # DETAILS
+      - name: period_name
+        description: "Name of the reporting period (REPORTING_PERIOD.NAME)."
+        data_type: varchar
+
+      # DATES / TIMESTAMPS
+      - name: start_date
+        description: "Start date of the reporting period (REPORTING_PERIOD.START_DATE)."
+        data_type: timestamp_ntz
+
+      - name: end_date
+        description: "End date of the reporting period (REPORTING_PERIOD.END_DATE)."
+        data_type: timestamp_ntz
+
+      # AUDIT / METADATA
+      - name: last_modified_date
+        description: "Source last modified timestamp (REPORTING_PERIOD.WHENMODIFIED) used as updated_at for SCD2."
+        data_type: timestamp_ntz

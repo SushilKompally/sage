@@ -1,0 +1,64 @@
+
+version: 2
+
+snapshots:
+  - name: dim_employee
+    description: "SCD Type 2 snapshot for Sage employees using timestamp strategy (updated_at=last_modified_date)."
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      # PRIMARY KEY
+      - name: employee_id
+        description: "Primary key for employee (EMPLOYEE.EMPLOYEEID)."
+        data_type: number
+
+
+      # FOREIGN KEYS
+      - name: department_id
+        description: "FK to department (EMPLOYEE.DEPARTMENTID)."
+        data_type: number
+
+
+      - name: location_id
+        description: "FK to location (EMPLOYEE.LOCATIONID)."
+        data_type: number
+
+
+      - name: entity_id
+        description: "FK to entity dimension (EMPLOYEE.ENTITY)."
+        data_type: varchar
+
+
+      - name: subsidiary
+        description: "FK to subsidiary (EMPLOYEE.MEGAENTITYID)."
+        data_type: number
+   
+      - name: employee_type_id
+        description: "FK to employee type (EMPLOYEE.EMPTYPEKEY)."
+        data_type: number
+
+      # DETAILS
+      - name: title
+        description: "Employee title/designation (EMPLOYEE.TITLE)."
+        data_type: varchar
+
+      - name: email
+        description: "Primary email address (EMPLOYEE.PERSONALINFO_EMAIL_1)."
+        data_type: varchar
+
+      - name: is_inactive
+        description: "Inactivity status (EMPLOYEE.STATUS)."
+        data_type: varchar
+
+      # DATES / TIMESTAMPS
+      - name: date_created
+        description: "Record creation timestamp (EMPLOYEE.WHENCREATED)."
+        data_type: timestamp_ntz
+
+      # AUDIT / METADATA
+      - name: last_modified_date
+        description: "Source last modified timestamp (EMPLOYEE.WHENMODIFIED) used as updated_at for SCD2."
+        data_type: timestamp_ntz
+

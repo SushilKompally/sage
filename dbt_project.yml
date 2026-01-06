@@ -40,11 +40,11 @@ clean-targets: # directories to be removed by `dbt clean`
 vars:
   # Global tool vars
   tool_name: "{{ env_var('TOOL_NAME', 'fivetran') }}"
-  record_creation_column: "{{ env_var('RECORD_CREATION_COLUMN', 'lastmodifieddate') }}"
+  record_creation_column: "{{ env_var('RECORD_CREATION_COLUMN', 'UPDATED_AT') }}"
 
   # Incremental filter vars
-  source_record_creation_column: "{{ env_var('RECORD_CREATION_COLUMN', 'lastmodifieddate') }}"
-  silver_target_timestamp_col: "{{ env_var('TARGET_TIMESTAMP_COL', 'last_modified_date') }}"
+  source_record_creation_column: "{{ env_var('RECORD_CREATION_COLUMN', 'UPDATED_AT') }}"
+  silver_target_timestamp_col: "{{ env_var('TARGET_TIMESTAMP_COL', 'UPDATED_AT') }}"
 
   # for {{ var('source_database_name') }}
   source_database_name: "sage_db"

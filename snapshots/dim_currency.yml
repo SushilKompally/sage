@@ -1,0 +1,28 @@
+
+version: 2
+
+snapshots:
+  - name: dim_currency
+    description: "SCD Type 2 snapshot for currencies using timestamp strategy on last_modified_date."
+
+    columns:
+      - name: currency_id
+        description: "Unique identifier for the currency in source."
+        tests:
+          - unique:
+              where: "dbt_valid_to IS NULL"
+          - not_null:
+              where: "dbt_valid_to IS NULL"
+
+      - name: currency_name
+        description: "Name of the currency."
+        data_type: varchar
+
+      - name: display_symbol
+        description: "Currency symbol for display purposes."
+        data_type: varchar
+
+      - name: last_modified_date
+        description: "Source system last modified timestamp used as updated_at for SCD2."
+        data_type: timestamp_ntz
+       

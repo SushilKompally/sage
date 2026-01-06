@@ -1,0 +1,54 @@
+
+version: 2
+
+snapshots:
+  - name: dim_item
+    description: "SCD Type 2 snapshot for Sage items using timestamp strategy (updated_at=last_modified_date)."
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      # PRIMARY KEY
+      - name: item_id
+        description: "Primary key for item (ITEM.ITEMID)."
+        data_type: number
+
+      # DETAILS
+      - name: item_name
+        description: "Item name (ITEM.NAME)."
+        data_type: varchar
+
+      - name: display_name
+        description: "Display name (ITEM.NAME)."
+        data_type: varchar
+
+      - name: description
+        description: "Extended item description (ITEM.EXTENDED_DESCRIPTION)."
+        data_type: varchar
+
+      - name: cost
+        description: "Standard cost of the item (ITEM.STANDARD_COST)."
+        data_type: number
+
+      - name: costing_method
+        description: "Costing method of the item (ITEM.COST_METHOD)."
+        data_type: varchar
+
+      - name: item_type
+        description: "Type/category of the item (ITEM.ITEMTYPE)."
+        data_type: varchar
+
+      - name: is_inactive
+        description: "Inactive status (ITEM.STATUS)."
+        data_type: varchar
+
+      # DATES / TIMESTAMPS
+      - name: created_date
+        description: "Record creation timestamp (ITEM.WHENCREATED)."
+        data_type: timestamp_ntz
+
+      # AUDIT / METADATA
+      - name: last_modified_date
+        description: "Source last modified timestamp (ITEM.WHENMODIFIED) used as updated_at for SCD2."
+        data_type: timestamp_ntz

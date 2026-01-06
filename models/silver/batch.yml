@@ -1,0 +1,128 @@
+version: 2
+
+models:
+  - name: silver_batch
+    description: >
+      Silver layer table for Sage batch records.
+      Stores journal batch metadata used across accounting
+      and financial transaction processing.
+
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      - name: batchno
+        data_type: number(38,0)
+        description: "Unique batch identifier"
+        tests:
+          - not_null
+          - unique
+
+      - name: baselocation
+        data_type: varchar
+
+      - name: baselocation_no
+        data_type: varchar
+
+      - name: batch_title
+        data_type: varchar
+
+      - name: batch_date
+        data_type: date
+
+      - name: journal
+        data_type: varchar
+
+      - name: createdby
+        data_type: number(38,0)
+
+      - name: createdbyloginid
+        data_type: varchar
+
+      - name: megaentityid
+        data_type: varchar
+
+      - name: megaentitykey
+        data_type: number(38,0)
+
+      - name: megaentityname
+        data_type: varchar
+
+      - name: modified
+        data_type: timestamp_ntz
+
+      - name: modifiedby
+        data_type: number(38,0)
+
+      - name: modifiedbyid
+        data_type: varchar
+
+      - name: modifiedbyloginid
+        data_type: varchar
+
+      - name: module
+        data_type: varchar
+
+      - name: prbatchkey
+        data_type: number(38,0)
+
+      - name: rdepreciation_schedule
+        data_type: number(38,0)
+
+      - name: recordno
+        data_type: number(38,0)
+
+      - name: referenceno
+        data_type: varchar
+
+      - name: reversed
+        data_type: date
+
+      - name: reversedfrom
+        data_type: date
+
+      - name: reversedkey
+        data_type: number(38,0)
+
+      - name: rfixed_assets_log
+        data_type: number(38,0)
+
+      - name: rpesentry
+        data_type: number(38,0)
+
+      - name: schopkey
+        data_type: number(38,0)
+
+      - name: state
+        data_type: varchar
+
+      - name: statistical
+        data_type: boolean
+
+      - name: supdocid
+        data_type: varchar
+
+      - name: supdockey
+        data_type: number(38,0)
+
+      - name: taximplications
+        data_type: varchar
+
+      - name: transactionsource
+        data_type: varchar
+
+      - name: userinfo_loginid
+        data_type: varchar
+
+      - name: userkey
+        data_type: number(38,0)
+
+      - name: whencreated
+        data_type: timestamp_ntz
+
+      - name: whenmodified
+        data_type: timestamp_ntz
+
+      - name: silver_load_date
+        data_type: timestamp_ntz
