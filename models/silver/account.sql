@@ -79,19 +79,13 @@ cleaned AS (
         -- ===========================
         WHENCREATED                     AS WHENCREATED,
        WHENMODIFIED              AS WHENMODIFIED,
-       ISDELETED as is_deleted,
 
         -- ===========================
         -- SILVER / LOAD AUDIT
         -- ===========================
         CURRENT_TIMESTAMP()                                         AS SILVER_LOAD_DATE,
 
-        -- ===========================
-        -- METADATA (from source_metadata())
-        -- ===========================
-        _INGESTION_TIMESTAMP,
-        _SOURCE_OBJECT,
-        _BATCH_ID
+
     FROM raw
 )
 

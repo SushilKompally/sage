@@ -1,4 +1,3 @@
-
 {% snapshot dim_department %}
 {{
     config(
@@ -13,7 +12,7 @@ select
     title                        as department_name,
     status                       as is_inactive,
     parentid                     as parent,
-    try_cast(whenmodified as timestamp_ntz) as last_modified_date
-from {{ ref("department") }}
+    whenmodified  as last_modified_date
+select * from {{ ref("department") }}
 
 {% endsnapshot %}

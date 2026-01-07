@@ -5,7 +5,6 @@
 -- Author: Sushil Kumar Kompally
 -- Purpose:
 --     Incrementally load and standardize Sage 'batch' data
---     from Bronze to Silver using macro-based cleansing.
 -- Change History:
 --     05-Jan-2025 - Initial creation - Sushil Kompally
 */

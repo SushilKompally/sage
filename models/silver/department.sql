@@ -29,12 +29,12 @@ cleaned AS (
         -- ===========================
         -- PRIMARY KEY
         -- ===========================
-        {{ clean_string_lower('departmentid') }}      AS departmentid,
+        departmentid,
 
         -- ===========================
         -- STRINGS
         -- ===========================
-        {{ clean_string_lower('custtitle') }}         AS custtitle,
+        custtitle,
         {{ clean_string_lower('parentid') }}          AS parentid,
         {{ clean_string_lower('parentname') }}        AS parentname,
         {{ clean_string_lower('record_url') }}        AS record_url,
@@ -46,17 +46,17 @@ cleaned AS (
         -- ===========================
         -- NUMERICS
         -- ===========================
-        {{ safe_integer('createdby') }}               AS createdby,
-        {{ safe_integer('modifiedby') }}              AS modifiedby,
-        {{ safe_integer('parentkey') }}               AS parentkey,
-        {{ safe_integer('recordno') }}                AS recordno,
-        {{ safe_integer('supervisorkey') }}           AS supervisorkey,
+        createdby,
+        modifiedby,
+        parentkey,
+        recordno,
+        supervisorkey,
 
         -- ===========================
         -- TIMESTAMPS
         -- ===========================
-        {{ safe_timestamp_ntz('whencreated') }}       AS whencreated,
-        {{ safe_timestamp_ntz('whenmodified') }}      AS whenmodified,
+        whencreated,
+        whenmodified,
 
         -- ===========================
         -- SILVER AUDIT

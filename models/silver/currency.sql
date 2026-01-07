@@ -22,7 +22,7 @@ WITH raw AS (
         {{ source_metadata() }}
     FROM {{ source('sage_bronze', 'currency') }}
     WHERE 1 = 1
-    {{ incremental_filter() }}
+    --{{ incremental_filter() }}
 ),
 
 cleaned AS (
@@ -37,7 +37,7 @@ cleaned AS (
         -- ===========================
         TRIM(NAME)                                   AS CURRENCY_NAME,
         TRIM(SYMBOL)                                 AS SYMBOL,
-        whenmodified,
+       -- whenmodified,
         -- ===========================
         -- DATES / TIMESTAMPS FROM SOURCE
         -- ===========================
