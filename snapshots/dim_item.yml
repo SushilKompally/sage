@@ -12,7 +12,7 @@ snapshots:
       # PRIMARY KEY
       - name: item_id
         description: "Primary key for item (ITEM.ITEMID)."
-        data_type: number
+        data_type: varchar
 
       # DETAILS
       - name: item_name
@@ -29,7 +29,7 @@ snapshots:
 
       - name: cost
         description: "Standard cost of the item (ITEM.STANDARD_COST)."
-        data_type: number
+        data_type: varchar
 
       - name: costing_method
         description: "Costing method of the item (ITEM.COST_METHOD)."
@@ -46,9 +46,9 @@ snapshots:
       # DATES / TIMESTAMPS
       - name: created_date
         description: "Record creation timestamp (ITEM.WHENCREATED)."
-        data_type: timestamp_ntz
+        data_type: timestamp_tz
 
       # AUDIT / METADATA
       - name: last_modified_date
         description: "Source last modified timestamp (ITEM.WHENMODIFIED) used as updated_at for SCD2."
-        data_type: timestamp_ntz
+        data_type: timestamp_tz

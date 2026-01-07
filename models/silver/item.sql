@@ -124,12 +124,7 @@ cleaned AS (
         -- ===========================
         CURRENT_TIMESTAMP()                                        AS SILVER_LOAD_DATE,
 
-        -- ===========================
-        -- METADATA
-        -- ===========================
-        _INGESTION_TIMESTAMP,
-        _SOURCE_OBJECT,
-        _BATCH_ID
+
 
     FROM raw
 )

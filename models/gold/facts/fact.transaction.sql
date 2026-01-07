@@ -54,14 +54,14 @@ WITH source_rows AS (
         -- AUDIT / METADATA
         gb.WHENMODIFIED AS LAST_MODIFIED_DATE
 
-    FROM SAGE_DB.SILVER.ENTRY ge
-    LEFT JOIN SAGE_DB.SILVER.BATCH gb 
+    FROM {{ ref('entry') }} ge
+    LEFT JOIN {{ ref('batch') }} gb 
         ON ge.LINE_NO = gb.RECORDNO
-    LEFT JOIN SAGE_DB.SILVER.DETAIL gd 
+    LEFT JOIN {{ ref('detail') }} gd 
         ON ge.RECORDNO = gd.RECORDNO
-    LEFT JOIN SAGE_DB.SILVER.ACCOUNT ga
+    LEFT JOIN {{ ref('account') }} ga
         ON ge.LINE_NO = ga.RECORDNO
-    LEFT JOIN SAGE_DB.SILVER.REPORTING_PERIOD rp
+    LEFT JOIN {{ ref('reporting_period') }} rp
         ON gb.BATCH_DATE = rp.START_DATE
 
     {% if is_incremental() %}

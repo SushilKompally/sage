@@ -29,13 +29,13 @@ cleaned AS (
         -- ===========================
         -- PRIMARY KEY
         -- ===========================
-        {{ safe_integer('recordno', 38, 0) }}           AS recordno,
+        recordno,
 
         -- ===========================
         -- FLAGS / NUMERICS
         -- ===========================
-        {{ safe_integer('budgeting') }}                 AS budgeting,
-        {{ safe_decimal('datetype', 10, 2) }}           AS datetype,
+        budgeting,
+        datetype,
 
         -- ===========================
         -- DATES
@@ -55,8 +55,8 @@ cleaned AS (
         -- ===========================
         -- SOURCE TIMESTAMPS
         -- ===========================
-        {{ safe_timestamp_ntz('whencreated') }}         AS whencreated,
-        {{ safe_timestamp_ntz('whenmodified') }}        AS whenmodified,
+        whencreated,
+        whenmodified,
 
         -- ===========================
         -- SILVER AUDIT
